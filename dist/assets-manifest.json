@@ -1,0 +1,6 @@
+{
+  "main.css": "main.css",
+  "main.js": "dist.min.js",
+  "main.css.map": "main.css.map",
+  "main.js.map": "dist.min.js.map"
+}
