@@ -4,6 +4,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const globCssImporter = require('node-sass-glob-importer');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const path = require('path');
 
@@ -34,7 +35,6 @@ module.exports = (env, argv) => {
 
     output: {
       filename: devMode ? 'main.js' : 'main-[contenthash].js',
-      filename: 'dist.min.js',
       path: path.resolve(__dirname, 'dist'),
       sourceMapFilename: '[file].map',
     },
@@ -102,6 +102,7 @@ module.exports = (env, argv) => {
         fileName: 'assets-manifest.json',
       }),
       new StylelintPlugin(),
+      new CleanWebpackPlugin(),
     ],
   };
 };
